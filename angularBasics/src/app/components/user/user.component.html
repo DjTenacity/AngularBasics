@@ -1,0 +1,131 @@
+<!-- Angular 中使用{{}}绑定业务逻辑里面定义的数据 -->
+<h1>angualr模板里面绑定数据</h1>
+<h2>{{title}}</h2>
+<h3>{{msg}}</h3>
+<h4>{{username}}</h4>
+<h5>{{student}}</h5>
+
+<hr/>
+<h6>{{userinfo.username}}</h6>
+<div>
+    {{message}}
+</div>
+<hr/>
+<h1>angualr模板里面绑定属性</h1>
+
+<div title="我是一个div">
+    鼠标瞄上去看一下
+</div>
+<br>
+<div [title]="student">
+    张三
+</div>
+<hr/>
+<h1>angualr模板里面绑定Html</h1>
+
+<div>
+    {{content}}
+</div>
+
+<br>
+
+<span [innerHTML]='content' class="red"></span>
+
+
+<hr/>
+<h1>angualr模板里面允许做简单的运算</h1>
+1+2={{1+2}}
+<hr/>
+<h1>angualr里面的数据循环</h1>
+
+<ul>
+    <li *ngFor="let item of arr">
+        {{item}}
+    </li>
+</ul>
+<br>
+<ol>
+    <li *ngFor="let item of list">
+        {{item}}
+    </li>
+</ol>
+<br>
+<ol>
+    <li *ngFor="let item of items">
+        {{item}}
+    </li>
+</ol>
+<br>
+<ul>
+    <li *ngFor="let item of userlist;let key=index">
+        {{key}}---{{item.username}}---{{item.age}}
+    </li>
+</ul>
+<br>
+<ul>
+    <li *ngFor="let item of cars">
+        <h2>{{item.cate}}</h2>
+        <ol>
+            <li *ngFor="let car of item.list">
+                {{car.title}}---{{car.price}}
+            </li>
+        </ol>
+    </li>
+</ul>
+<br>
+<h1>引入图片</h1>
+<div *ngIf="ifMousePic">
+    <img src="../../../assets/images/mouse.jpg" alt="">
+</div>
+
+<span [ngSwitch]="OrderStatus">
+  <p *ngSwitchCase="1">
+    已支付
+  </p>
+  <p *ngSwitchCase="2">
+    订单已经确认
+  </p>
+  <p *ngSwitchDefault>
+    无效
+  </p>
+</span>
+<h1>尽量不要在dom(html的所有标签)里面修改class</h1>
+<div [ngClass]="{'red': true, 'blue': false}">
+    这是一个 div
+</div>
+public flag=false;
+<div [ngClass]="{'red': flag, 'blue': !flag}">
+    这是一个 div
+</div>
+<!-- public arr = [1, 3, 4, 5, 6]; -->
+<ul>
+    <li *ngFor="let item of arr, let i = index">
+        <span [ngClass]="{'red': i==0}">{{item}}</span>
+    </li>
+</ul>
+<br>
+<p>{{today | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+<br>
+
+<!-- click 事件 -->
+<button class="button" (click)="getData()">
+    点击按钮触发事件
+</button>
+<button class="button" (click)="setData()">
+    点击按钮设置数据
+</button>
+
+<br>
+
+<input type="text" (keyup)="keyUpFn($event)"/>
+
+<br>
+<!-- 双向数据绑定 -->
+<input type="text" [(ngModel)]="name"/>
+
+<br>
+
+<br>
+<br>
+<br>
+<br>

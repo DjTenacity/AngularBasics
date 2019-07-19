@@ -1,0 +1,9 @@
+<app-header #header (outer)="run2($event)"></app-header>
+<app-header [title]="title" [msg]="msg" [run]='run' [home]='this'></app-header>
+
+<div #myBox>
+    我是父组件的一个dom节点
+</div>
+
+
+<button (click)="getChildRun()">获取子组件的方法</button>
