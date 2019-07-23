@@ -13,12 +13,14 @@ export class HeaderComponent implements OnInit {
 
     @Input() msg: any;
 
+    // @ts-ignore
     @Input() run: any;
 
     @Input() home: any;
 
     @Output() private outer = new EventEmitter();
 
+    // @ts-ignore
     public msg = '我是子组件header的一个msg';
 
 
@@ -28,7 +30,7 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
     }
 
-    run() {
+    static run() {
         console.log('我是header里面的run方法');
     }
 
